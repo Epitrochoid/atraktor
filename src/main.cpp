@@ -29,7 +29,24 @@ int main(int argc, char* argv[]) {
 		return 1;
 	}
 
+	// Main event loop
+	bool quit = false;
+
+	while (quit == false) {
+		while (SDL_PollEvent(&event)) {
+			if (event.type == SDL_KEYDOWN) {
+				if (event.key.keysym.sym == SDLK_UP) {
+					quit = true;
+				}
+			}
+		}
+
+		// Wait 5ms
+		SDL_Delay(5);
+	}
+
 	delete textspec;
+	SDL_FreeSurface(screen);
     SDL_Quit();
     return 0;
 }
@@ -74,5 +91,6 @@ bool load(TextSpec* textspec) {
 	textspec->bgActive = {80, 80, 80};
 	textspec->bgInactive = {0, 0, 0};
 	textspec->bgEmph = {60, 60, 60};
+	return true;
 }
 

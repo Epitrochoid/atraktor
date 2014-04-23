@@ -21,7 +21,7 @@ class State {
 	uint16_t tempo;
 	uint8_t masterVol;
 
-	void addSequence(Sequence&);
+	void addSequence(Sequence*);
 	void removeSequence(uint16_t);
 	void startPlayback();
 	void stopPlayback();

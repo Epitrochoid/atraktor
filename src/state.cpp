@@ -8,9 +8,10 @@
 State::State(string name) {
     this->name = name;
     curSeq = new Sequence();
+    addSequence(curSeq);
 }
 
-void State::addSequence(Sequence &seq) {
+void State::addSequence(Sequence *seq) {
 }
 
 void State::removeSequence(uint16_t key) {

@@ -15,11 +15,11 @@ class State {
         unordered_map<uint16_t, Sequence> sequences;
 	list<Sequence> seqList;
 	Sequence *curSeq;
-	Playback playback;
     public:
         string name;
 	uint16_t tempo;
 	uint8_t masterVol;
+	Playback playback;
 
 	void addSequence(Sequence*);
 	void removeSequence(uint16_t);

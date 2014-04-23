@@ -33,6 +33,7 @@ class UIElement {
 class UIPlayback: public UIElement {
     public:
         UIPlayback();
+		~UIPlayback();
 		void render(SDL_Surface*, TextSpec&);
 		void update(State*);
 		void giveFocus();

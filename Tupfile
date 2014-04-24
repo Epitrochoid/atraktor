@@ -1,0 +1,2 @@
+: src/main.cpp |> g++ -c %f -o %o |> build/main.o
+: build/main.o |> g++ %f -o %o -lSDL -lSDL_ttf |> atraktor

@@ -1,2 +1,4 @@
-: src/main.cpp |> g++ -c %f -o %o |> build/main.o
+: src/main.cpp |> g++ -c %f -o %o -std=c++0x |> build/main.o
+: src/seq.cpp |> g++ -c %f -o %o -std=c++0x |> build/seq.o
+: src/state.cpp |> g++ -c %f -o %o -std=c++0x |> build/state.o
 : build/main.o |> g++ %f -o %o -lSDL -lSDL_ttf |> atraktor

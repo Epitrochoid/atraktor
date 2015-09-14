@@ -23,10 +23,8 @@ UIPlayback::~UIPlayback() {
 
 void UIPlayback::render(SDL_Surface* screen, TextSpec* textSpec) {
     if (nameSurface == NULL) {
-        std::cout << "Got here 0";
         nameSurface = TTF_RenderText_Shaded(textSpec->bigFont, name.c_str(), textSpec->textColor, textSpec->bgInactive);
     }
-    std::cout << "Got here 1";
     applySurface(0, 0, nameSurface, screen);
 }
 

@@ -23,7 +23,7 @@ class TextSpec {
 class UIElement {
     public:
         virtual ~UIElement();
-        virtual void render(SDL_Surface*, TextSpec&) = 0;
+        virtual void render(SDL_Surface*, TextSpec*) = 0;
         virtual void update(State*) = 0;
         virtual void giveFocus() = 0;
         virtual void takeFocus() = 0;
@@ -34,7 +34,7 @@ class UIPlayback: public UIElement {
     public:
         UIPlayback();
         ~UIPlayback();
-        void render(SDL_Surface*, TextSpec&);
+        void render(SDL_Surface*, TextSpec*);
         void update(State*);
         void giveFocus();
         void takeFocus();
@@ -42,6 +42,8 @@ class UIPlayback: public UIElement {
     private:
         Playback playState;
         string name;
+        SDL_Surface* nameSurface;
+        SDL_Surface* playbackSurface;
 };
 
 #endif

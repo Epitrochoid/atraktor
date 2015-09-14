@@ -2,4 +2,5 @@
 : src/seq.cpp |> g++ -c %f -o %o -std=c++0x |> build/seq.o
 : src/state.cpp |> g++ -c %f -o %o -std=c++0x |> build/state.o
 : src/ui.cpp |> g++ -c %f -o %o -std=c++0x |> build/ui.o
+: src/util.cpp |> g++ -c %f -o %o -std=c++0x |> build/util.o
 : build/*.o |> g++ %f -o %o -lSDL -lSDL_ttf |> atraktor

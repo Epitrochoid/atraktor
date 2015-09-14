@@ -1,6 +1,7 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_ttf.h"
 #include <iostream>
+#include <vector>
 
 #include "ui.h"
 
@@ -9,6 +10,7 @@ using namespace std;
 // Function prototypes
 bool init();
 bool load(TextSpec*);
+void load_ui();
 
 // Globals are bad, m'kay
 const int SCREEN_WIDTH = 800;
@@ -17,6 +19,8 @@ const int SCREEN_BPP = 32;
 
 SDL_Surface *screen = NULL;
 SDL_Event event;
+
+vector<UIElement*> uiElements(1);
 
 // Program entry point
 int main(int argc, char* argv[]) {
@@ -29,6 +33,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    load_ui();
+
     // Main event loop
     bool quit = false;
 
@@ -39,6 +45,13 @@ int main(int argc, char* argv[]) {
                     quit = true;
                 }
             }
+        }
+
+        uiElements[0]->render(screen, textspec);
+
+        if (SDL_Flip(screen) == -1) {
+            cout << "Could not flip screen buffer" << endl;
+            return 1;
         }
 
         // Wait 5ms
@@ -94,3 +107,6 @@ bool load(TextSpec* textspec) {
     return true;
 }
 
+void load_ui() {
+    uiElements[0] = new UIPlayback;
+}
